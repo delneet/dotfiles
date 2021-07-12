@@ -202,19 +202,14 @@ for item in "${fish_files[@]}"; do
   ln -nfs "${DOTFILES}/fish/${item}" "${FISH_DIR}/${item}"
 done
 
-dotfiles_echo "-> Installing vim-plug plugins..."
-nvim --headless +PlugInstall +qall
-
 dotfiles_echo "-> Initializing fish_user_paths..."
 command fish -c "set -U fish_user_paths $HOME/bin $HOME/.yarn/bin /usr/local/bin /usr/local/sbin"
 
 dotfiles_echo "-> Installing custom terminfo entries..."
 tic -x "${DOTFILES}/terminfo/tmux-256color.terminfo"
 tic -x "${DOTFILES}/terminfo/xterm-256color-italic.terminfo"
-sudo tic -xe alacritty,alacritty-direct "${DOTFILES}/terminfo/alacritty.info"
 
 dotfiles_echo "Dotfiles installation complete!"
 
 dotfiles_echo "Post-install recommendations:"
 dotfiles_echo "- Complete Brew Bundle installation with 'brew bundle install'"
-dotfiles_echo "- After launching Neovim, run :checkhealth and resolve any errors/warnings."

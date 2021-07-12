@@ -52,13 +52,6 @@ alias t4='tree -L 4'
 alias t4a='tree -La 4'
 alias tree='tree -CF'
 
-# Neovim
-alias vi='nvim'
-alias vim='nvim'
-alias vir='nvim -R'
-alias vv='nvim --version | less'
-alias vi0='nvim -u NONE'
-
 # Git
 alias ga='git add'
 alias gaa='git add --all'

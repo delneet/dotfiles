@@ -58,9 +58,6 @@ bindkey -M vicmd v edit-command-line
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1
 
-# Travis CI
-[ -f ~/.travis/travis.sh ] && . ~/.travis/travis.sh
-
 # Include local settings
 [[ -f ~/.zshrc.local ]] && . ~/.zshrc.local
 
