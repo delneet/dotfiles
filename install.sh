@@ -47,12 +47,6 @@ if [ -z "$XDG_CONFIG_HOME" ]; then
   export XDG_CONFIG_HOME="${HOME}/.config"
 fi
 
-FISH_DIR="${XDG_CONFIG_HOME}/fish"
-
-if [ ! -d "$FISH_DIR" ]; then
-  mkdir "$FISH_DIR"
-fi
-
 # Ensure Yarn is available in PATH for when Neovim runs plugin installation.
 # https://github.com/yarnpkg/website/blob/96485d6901f1545a72f413e8df6a6851dece4d75/install.sh#L81
 dotfiles_echo "Adding Yarn to PATH..."
@@ -80,30 +74,16 @@ home_files=(
 "hushlogin"
 "npmrc"
 "rubocop.yml"
-"tmux.conf"
 "tool-versions"
 "zshrc"
 )
 
 config_dirs=(
-"nvim"
 "pry"
-"ranger"
 )
 
 config_files=(
-"alacritty.yml"
 "starship.toml"
-)
-
-fish_dirs=(
-"completions"
-"functions"
-)
-
-fish_files=(
-"config.fish"
-"abbreviations.fish"
 )
 
 dotfiles_echo "Installing dotfiles..."
@@ -169,41 +149,6 @@ for item in "${config_files[@]}"; do
   dotfiles_echo "-> Linking ${DOTFILES}/machines/${HOST_NAME}/${item} to ${XDG_CONFIG_HOME}/${item}..."
   ln -nfs "${DOTFILES}/machines/${HOST_NAME}/${item}" "${XDG_CONFIG_HOME}/$item"
 done
-
-dotfiles_echo "-> Linking Fish config directories..."
-for item in "${fish_dirs[@]}"; do
-  if [ -d "${FISH_DIR}/${item}" ]; then
-    dotfiles_echo "Directory ${item} exists."
-    if [ -L "${FISH_DIR}/${item}" ]; then
-      dotfiles_echo "Symbolic link detected. Removing..."
-      rm -v "${FISH_DIR}/${item}"
-    else
-      dotfiles_echo "Backing up..."
-      dotfiles_backup "${FISH_DIR}/${item}"
-    fi
-  fi
-  dotfiles_echo "-> Linking ${DOTFILES}/fish/${item} to ${FISH_DIR}/${item}..."
-  ln -nfs "${DOTFILES}/fish/${item}" "${FISH_DIR}/${item}"
-done
-
-dotfiles_echo "-> Linking Fish config files..."
-for item in "${fish_files[@]}"; do
-  if [ -e "${FISH_DIR}/${item}" ]; then
-    dotfiles_echo "${item} exists."
-    if [ -L "${FISH_DIR}/${item}" ]; then
-      dotfiles_echo "Symbolic link detected. Removing..."
-      rm -v "${FISH_DIR}/${item}"
-    else
-      dotfiles_echo "Backing up..."
-      dotfiles_backup "${FISH_DIR}/${item}"
-    fi
-  fi
-  dotfiles_echo "-> Linking ${DOTFILES}/fish/${item} to ${FISH_DIR}/${item}..."
-  ln -nfs "${DOTFILES}/fish/${item}" "${FISH_DIR}/${item}"
-done
-
-dotfiles_echo "-> Initializing fish_user_paths..."
-command fish -c "set -U fish_user_paths $HOME/bin $HOME/.yarn/bin /usr/local/bin /usr/local/sbin"
 
 dotfiles_echo "-> Installing custom terminfo entries..."
 tic -x "${DOTFILES}/terminfo/tmux-256color.terminfo"
