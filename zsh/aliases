@@ -171,12 +171,10 @@ alias upc='softwareupdate -l'
 alias upd='softwareupdate -i -a'
 
 # Misc
-alias cat='bat'
 alias ch='cht.sh'
 alias chs='cht.sh --shell'
 alias color='colortest -w -s'
 alias copy='tr -d "\n" | pbcopy'
-alias ct='ctags -R --languages=ruby --exclude=.git --exclude=log . $(bundle list --paths)'
 alias hangout='open https://hangouts.google.com/hangouts/_'
 alias htop='sudo htop'
 alias no='get_node_version'

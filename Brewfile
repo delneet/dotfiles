@@ -82,6 +82,7 @@ cask 'whatsapp'
 
 # rubocop:disable Style/NumericLiterals
 # mas "Keynote", id: 409183694
+# mas "Runcat"
 # rubocop:enable Style/NumericLiterals
 
 # vim: set filetype=ruby:
