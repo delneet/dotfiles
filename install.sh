@@ -80,6 +80,7 @@ home_files=(
 
 config_dirs=(
 "pry"
+"irb"
 )
 
 config_files=(

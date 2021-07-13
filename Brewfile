@@ -25,6 +25,7 @@ brew 'bash-completion'
 brew 'cmake'
 brew 'coreutils'
 brew 'exa'
+brew 'gh' # github cli
 brew 'git'
 brew 'git-quick-stats'
 brew 'gnupg' # asdf-nodejs dependency
@@ -52,9 +53,6 @@ brew 'zsh'
 # https://github.com/caskroom/homebrew-cask
 cask '1password'
 cask 'alfred'
-cask 'bartender'
-cask 'cleanmymac'
-cask 'daisydisk'
 cask 'docker-toolbox'
 cask 'dropbox'
 cask 'font-caskaydia-cove-nerd-font'
@@ -71,7 +69,6 @@ cask 'loom'
 cask 'microsoft-teams'
 cask 'ngrok'
 cask 'pgadmin4'
-cask 'postico'
 cask 'postman'
 cask 'rubymine'
 cask 'runcat'
@@ -80,9 +77,6 @@ cask 'spotify'
 cask 'visual-studio-code'
 cask 'whatsapp'
 
-# rubocop:disable Style/NumericLiterals
 # mas "Keynote", id: 409183694
 # mas "Runcat"
-# rubocop:enable Style/NumericLiterals
-
 # vim: set filetype=ruby:
