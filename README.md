@@ -1,8 +1,6 @@
-# My Dotfiles for macOS
+# Dotfiles for macOS
 
-![dotfiles screenshot][screenshot]
-
-These are the dotfiles I use on my Mac computers, currently running [macOS Catalina (10.15)][catalina]. They are geared primarily towards web development with [Rails][rails], [React][react], and [Vue][vue]. I use a terminal-based development environment built on [Fish][fish], [Tmux][tmux], and [Neovim][neovim]. Also included are my [iTerm2][iterm2] and [Alacritty][alacritty] profiles.
+These are the dotfiles I use on my Mac computers, currently running [macOS BigSur (11.4)][bigsur]. They are geared primarily towards web development with [Rails][rails]. I use a Rubymine or VSCode (IDE) development environment.
 
 ## Table of Contents
 
@@ -14,13 +12,9 @@ These are the dotfiles I use on my Mac computers, currently running [macOS Catal
   - [Fish Setup](#fish-setup)
 - [Post-install Tasks](#post-install-tasks)
 - [Setting up iTerm2](#setting-up-iterm2)
-- [Setting up Alacritty](#setting-up-alacritty)
-- [Machine-specific Configs](#machine-specific-configs)
 - [Colorschemes](#colorschemes)
   - [1. Colorschemes](#1-colorschemes)
-  - [2. Machine-specific Config](#2-machine-specific-config)
   - [3. Terminal Colorschemes](#3-terminal-colorschemes)
-  - [4. Tmux Custom Overrides](#4-tmux-custom-overrides)
   - [Useful Colorscheme Links](#useful-colorscheme-links)
 - [My Favorite Programming Fonts](#my-favorite-programming-fonts)
   - [Free Fonts](#free-fonts)
@@ -37,7 +31,7 @@ These are the dotfiles I use on my Mac computers, currently running [macOS Catal
 
 ## Mac Bootstrap Script
 
-Need to provision a new Mac from scratch? My Mac Bootstrap script installs and configures the software, dotfiles, and general preferences I use for web development.
+Need to provision a new Mac from scratch? [This Mac Bootstrap script][mac-bootstrap] installs and configures the software, dotfiles, and general preferences I use for web development.
 
 &#9657; **Provision a new Mac with [Mac Bootstrap][mac-bootstrap].**
 
@@ -53,8 +47,6 @@ The dotfiles assume you are running macOS with the following software pre-instal
 * [Node.js][nodejs]
 * [Fish][fish] or [Zsh][zsh]
 * [Oh-My-Zsh][oh-my-zsh] (if using zsh)
-* [Neovim][neovim]
-* [Tmux][tmux]
 * [asdf][asdf]
 * [Starship][starship]
 
@@ -122,7 +114,7 @@ Getting set up after a fresh install is simple.
 
 ## Machine-specific Configs
 
-I regularly use two Mac computers: a desktop and laptop. Most of my configs are identical between the two, but there are some some differences. I also occasionally install my dotfiles on other machines (family computer, wife's computer, your computer if I can get to it... 😈) 
+I regularly use two Mac computers: a desktop and laptop. Most of my configs are identical between the two, but there are some some differences. I also occasionally install my dotfiles on other machines (family computer, wife's computer, your computer if I can get to it... 😈)
 
 For this reason, I've introduced a `machines/` folder where I keep configs that are specific to a given computer. Machine-specific configs should be stored in sub-folders of `machines/` and named for the `hostname` of that machine. The overall structure looks like this:
 
@@ -364,7 +356,7 @@ Copyright &copy; 2014–2020 Joshua Steele. [MIT License][license]
 [blog-post]: http://stratus3d.com/blog/2015/02/28/sync-iterm2-profile-with-dotfiles-repository/
 [brew-bundle]: https://github.com/Homebrew/homebrew-bundle
 [cascadia-code]: https://github.com/microsoft/cascadia-code
-[catalina]: https://www.apple.com/macos/catalina/
+[bigsur]: https://www.apple.com/macos/big-sur/
 [checkhealth]: https://neovim.io/doc/user/pi_health.html#:checkhealth
 [coreutils]: https://formulae.brew.sh/formula/coreutils
 [dank-mono]: https://dank.sh/
@@ -382,7 +374,7 @@ Copyright &copy; 2014–2020 Joshua Steele. [MIT License][license]
 [javascript]: https://developer.mozilla.org/en-US/docs/Web/JavaScript
 [jetbrains-mono]: https://www.jetbrains.com/lp/mono/
 [license]: https://github.com/joshukraine/dotfiles/blob/master/LICENSE
-[mac-bootstrap]: http://jsua.co/macos
+[mac-bootstrap]: https://github.com/delneet/mac-bootstrap
 [material]: https://github.com/kaicataldo/material.vim
 [monolisa]: https://www.monolisa.dev/
 [neo-solarized]: https://github.com/icymind/NeoSolarized

@@ -66,7 +66,7 @@
   ignorecase   = false
   safecrlf     = warn
   abbrev       = 7
-  editor       = nvim
+  editor       = vim
 
 [diff]
   tool = vimdiff3
@@ -90,8 +90,11 @@
 [include]
   path = ~/.gitconfig.local
 
+[includeIf "gitdir:~/work/"]
+  path = ~/work/.gitconfig.inc
+
 [init]
-  defaultBranch = master
+  defaultBranch = main
 
 [mailmap]
   # Display commit author names based on global mailmap file.
@@ -104,12 +107,14 @@
   ff = false
 
 [pull]
-  # Don't flatten locally created merge commits when rebasing.
-  rebase = merges
+  rebase = true
 
 [push]
   # Refuse to push if upstream branch name is different from local.
   default = simple
+
+[rebase]
+  autosquash = true
 
 [status]
   submoduleSummary = true
