@@ -5,3 +5,4 @@ Brewfile.lock.json
 local/*
 vim/.netrwhist
 vim/bundle
+irb/.irb_history

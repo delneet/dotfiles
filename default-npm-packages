@@ -1,9 +1,0 @@
-@sanity/cli
-@vue/cli
-gulp-cli
-http-server
-neovim
-pug
-stylelint
-typescript
-vue-language-server
