@@ -20,15 +20,23 @@ alias .2='cd ../../'
 alias .3='cd ../../../'
 alias .4='cd ../../../../'
 alias .5='cd ../../../../..'
+alias cdj='cd ~/work/jaamo_main_app'
 
 # Listing files and directories
-alias ls='exa'
-alias l='exa -lhF'
-alias la='exa -lahF'
+alias ls='eza'
+alias l='eza -lhF'
+alias la='eza -lahF'
+
+# Lazy
+alias lag='lazygit'
+alias lad='lazydocker'
 
 # Finding stuff!
-alias fd='find . -type d -name'
-alias ff='find . -type f -name'
+alias fd='find . -type d -name | fzf'
+alias ff='find . -type f -name | fzf'
+
+# Vim
+alias vi='nvim'
 
 # Jump to quick edits
 alias ea='$EDITOR $DOTFILES/zsh/aliases'
@@ -56,8 +64,10 @@ alias tree='tree -CF'
 alias ga='git add'
 alias gaa='git add --all'
 alias gap='git add --patch'
-alias gb='git branch'
+#alias gb='git branch'
+alias gb='git branch | grep -v "^\*" | fzf --height=20% --reverse --info=inline | xargs gco'
 alias gba='git branch --all'
+alias gbm='git branch --merged master | grep -v "^\*\|  master"'
 alias gbr='git branch --remote'
 alias gbrm='git branch --merged master | grep -v "^\*\|  master" | xargs -n 1 git branch -d'
 alias gca='git commit --amend'
@@ -68,14 +78,16 @@ alias gcom='git checkout master'
 alias gdf='git diff --word-diff --color-words'
 alias gds='git diff --word-diff --cached --color-words'
 alias gf='git fetch'
-alias gl='git log --date=format:"%b %d, %Y" --pretty=format:"%C(yellow bold)%h%Creset%C(white)%d%Creset %s%n %C(blue)%aN (%cd)%n"'
+alias gl='git pull'
 alias glg='git log --graph --stat --pretty=format:"%C(yellow bold)%h%Creset%C(white)%d%Creset %s%n %C(blue)%aN (%cd)%n"'
+alias gp='git push'
 alias gpl='git pull'
 alias gps='git push'
 alias gpsf='git push --force-with-lease'
 alias gpum='git push -u origin master'
 alias grv='git remote -v'
 alias gs='git status'
+alias gst='git status'
 alias gtl='git tag --list | sort -r'
 alias gwip='git add -A; git rm $(git ls-files --deleted) 2> /dev/null; git commit --no-verify -m "--wip--"'
 
@@ -106,32 +118,8 @@ alias spring='_spring_command'
 alias sps='spring stop'
 alias sst='spring status'
 
-# Middleman
-alias mm='bundle exec middleman'
-alias mms='bundle exec middleman server'
-alias mmc='bundle exec middleman console -e console'
-alias mmb='bundle exec middleman build --clean'
-alias mma='bundle exec middleman article'
-
-# Postgres
-alias psq='pgcli -d postgres'
-alias startpost='brew services start postgresql'
-alias statpost='ps aux | rg postgres'
-alias stoppost='brew services stop postgresql'
-
-# Mac App Store (https://github.com/argon/mas)
-alias masi='mas install'
-alias masl='mas list'
-alias maso='mas outdated'
-alias mass='mas search'
-alias masu='mas upgrade'
-
-# Ansible
-alias ans='ansible'
-alias anp='ansible-playbook'
-alias anv='ansible-vault --ask-vault-pass'
-
 # Homebrew
+alias ibrew='arch -x86_64 /usr/local/bin/brew'
 alias bc='brew cleanup'
 alias bd='brew doctor'
 alias bg='brew upgrade --all'
@@ -156,14 +144,6 @@ alias rlv="asdf list-all ruby | rg '^\d'"
 # oh-my-zsh
 alias upz='upgrade_oh_my_zsh'
 
-# Finder
-alias saf='defaults write com.apple.finder AppleShowAllFiles TRUE; killall Finder'
-alias haf='defaults write com.apple.finder AppleShowAllFiles FALSE; killall Finder'
-alias o='open . &'
-alias dsstore_bye_bye='find . -name "*.DS_Store" -type f -delete'
-alias defr='defaults read'
-alias defw='defaults write'
-
 # Check for macOS updates
 alias upc='softwareupdate -l'
 
@@ -175,11 +155,9 @@ alias ch='cht.sh'
 alias chs='cht.sh --shell'
 alias color='colortest -w -s'
 alias copy='tr -d "\n" | pbcopy'
-alias hangout='open https://hangouts.google.com/hangouts/_'
 alias htop='sudo htop'
-alias no='get_node_version'
 alias ra='ranger'
 alias ru='ruby -v'
-alias yg='yarn generate'
-alias ygs='yarn generate && cd dist && http-server -p 8080'
-alias yba='yarn build --analyze'
+
+# Aws CLI
+alias awslist="aws ec2 describe-instances --filters 'Name=tag:Name,Values=Prod*,Demo*,Test*' --output table --query 'Reservations[*].Instances[*].{Name:Tags[?Key==\'Name\']|[0].Value, Instance:InstanceId, DNS:PublicDnsName,Type:InstanceType,AZ:Placement.AvailabilityZone}'"

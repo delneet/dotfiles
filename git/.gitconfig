@@ -119,8 +119,7 @@
 [status]
   submoduleSummary = true
 
-[url "https://github.com/"]
-  insteadOf = git@github.com:
-
-[url "https://"]
-  insteadOf = git://
+[user]
+	name = Daniel Delnaaij
+	email = danieldelnaaij@jaamo.nl
+	signingkey = 2558C8EFE7D13A7A

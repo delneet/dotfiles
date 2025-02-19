@@ -15,9 +15,9 @@ if defined?(PryDebugger) || defined?(PryByebug)
   Pry.config.prompt = Pry::Prompt[:nav]
 end
 
-if defined?(AmazingPrint)
   require "amazing_print"
   AmazingPrint.pry!
-end
 
 # vim: set filetype=ruby:
+
+puts "pryrc loaded"
