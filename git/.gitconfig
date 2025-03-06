@@ -59,6 +59,7 @@
 
 [commit]
   template = ~/.gitmessage
+	verbose = true
 
 [core]
   autocrlf     = input
@@ -71,13 +72,19 @@
 [diff]
   tool = vimdiff3
   submodule = log
+	algorithm = histogram
+	colorMoved = plain
+	mnemonicPrefix = true
+	renames = true
 
 [pager]
   diff = diff-so-fancy | less --tabs=4 -RFXS
   log = less -+X
 
 [fetch]
-  prune = true
+	prune = true
+	pruneTags = true
+	all = true
 
 [gitsh]
   defaultCommand = status --short --branch
@@ -94,7 +101,7 @@
   path = ~/work/.gitconfig.inc
 
 [init]
-  defaultBranch = main
+	defaultBranch = main
 
 [mailmap]
   # Display commit author names based on global mailmap file.
@@ -112,9 +119,22 @@
 [push]
   # Refuse to push if upstream branch name is different from local.
   default = simple
+	autoSetupRemote = true
+	followTags = true
 
 [rebase]
   autosquash = true
 
 [status]
   submoduleSummary = true
+[column]
+	ui = auto
+[branch]
+	sort = -committerdate
+[tag]
+	sort = version:refname
+[help]
+	autocorrect = prompt
+[rerere]
+	enabled = true
+	autoupdate = true
